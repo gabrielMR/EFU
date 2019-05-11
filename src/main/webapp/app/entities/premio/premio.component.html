@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span>Premios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-premio" [routerLink]="['/premio/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Premio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="premios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Titulo Premio</span></th>
+            <th><span>Descripcion</span></th>
+            <th><span>Categoria</span></th>
+            <th><span>Puesto</span></th>
+            <th><span>Gestion</span></th>
+            <th><span>Id Fraternidad</span></th>
+            <th><span>Nombre</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let premio of premios ;trackBy: trackId">
+                <td><a [routerLink]="['/premio', premio.id, 'view' ]">{{premio.id}}</a></td>
+                <td>{{premio.tituloPremio}}</td>
+                <td>{{premio.descripcion}}</td>
+                <td>{{premio.categoria}}</td>
+                <td>{{premio.puesto}}</td>
+                <td>{{premio.gestion}}</td>
+                <td>{{premio.idFraternidad}}</td>
+                <td>
+                    <span *ngFor="let nombre of premio.nombres; let last = last">
+                            <a class="form-control-static" [routerLink]="['../fraternidad', nombre?.id, 'view' ]">{{nombre.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/premio', premio.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/premio', premio.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'premio', { outlets: { popup: premio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span>Fraternidads</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fraternidad" [routerLink]="['/fraternidad/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Fraternidad
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="fraternidads">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Id Fraternidad</span></th>
+            <th><span>Nombre</span></th>
+            <th><span>Danza</span></th>
+            <th><span>Instancia</span></th>
+            <th><span>Fundacion</span></th>
+            <th><span>Descripcion</span></th>
+            <th><span>Estado</span></th>
+            <th><span>Nombre Niusta</span></th>
+            <th><span>Nombre Delegado</span></th>
+            <th><span>Nombre</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fraternidad of fraternidads ;trackBy: trackId">
+                <td><a [routerLink]="['/fraternidad', fraternidad.id, 'view' ]">{{fraternidad.id}}</a></td>
+                <td>{{fraternidad.idFraternidad}}</td>
+                <td>{{fraternidad.nombre}}</td>
+                <td>{{fraternidad.danza}}</td>
+                <td>{{fraternidad.instancia}}</td>
+                <td>{{fraternidad.fundacion | date:'mediumDate'}}</td>
+                <td>{{fraternidad.descripcion}}</td>
+                <td>{{fraternidad.estado}}</td>
+                <td>
+                    <div *ngIf="fraternidad.nombreNiusta">
+                        <a [routerLink]="['../niusta', fraternidad.nombreNiusta?.id, 'view' ]" >{{fraternidad.nombreNiusta?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="fraternidad.nombreDelegado">
+                        <a [routerLink]="['../delegado', fraternidad.nombreDelegado?.id, 'view' ]" >{{fraternidad.nombreDelegado?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let nombre of fraternidad.nombres; let last = last">
+                            <a class="form-control-static" [routerLink]="['../fraterno', nombre?.id, 'view' ]">{{nombre.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/fraternidad', fraternidad.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fraternidad', fraternidad.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'fraternidad', { outlets: { popup: fraternidad.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

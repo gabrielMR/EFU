@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notificacion">
+            <h2><span>Notificacion</span> {{notificacion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Titulo Notificacion</span></dt>
+                <dd>
+                    <span>{{notificacion.tituloNotificacion}}</span>
+                </dd>
+                <dt><span>Descripcion</span></dt>
+                <dd>
+                    <span>{{notificacion.descripcion}}</span>
+                </dd>
+                <dt><span>Contenido</span></dt>
+                <dd>
+                    <span>{{notificacion.contenido}}</span>
+                </dd>
+                <dt><span>Estado</span></dt>
+                <dd>
+                    <span>{{notificacion.estado}}</span>
+                </dd>
+                <dt><span>Fecha</span></dt>
+                <dd>
+                    <span>{{notificacion.fecha}}</span>
+                </dd>
+                <dt><span>Hora</span></dt>
+                <dd>
+                    <span>{{notificacion.hora}}</span>
+                </dd>
+                <dt><span>Id Fraternidad</span></dt>
+                <dd>
+                    <span>{{notificacion.idFraternidad}}</span>
+                </dd>
+                <dt><span>Nombre</span></dt>
+                <dd>
+                    <span *ngFor="let nombre of notificacion.nombres; let last = last">
+                        <a [routerLink]="['/fraternidad', nombre?.id, 'view' ]">{{nombre.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notificacion', notificacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

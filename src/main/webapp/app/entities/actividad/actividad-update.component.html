@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-actividad-heading">Create or edit a Actividad</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!actividad.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_titulo">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" id="field_titulo"
+                           formControlName="titulo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fechaini">Fechaini</label>
+                    <div class="input-group">
+                        <input id="field_fechaini" type="text" class="form-control" name="fechaini" ngbDatepicker  #fechainiDp="ngbDatepicker" formControlName="fechaini"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechainiDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fechafin">Fechafin</label>
+                    <div class="input-group">
+                        <input id="field_fechafin" type="text" class="form-control" name="fechafin" ngbDatepicker  #fechafinDp="ngbDatepicker" formControlName="fechafin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechafinDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_horaini">Horaini</label>
+                    <div class="d-flex">
+                        <input id="field_horaini" type="datetime-local" class="form-control" name="horaini" formControlName="horaini" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_horafin">Horafin</label>
+                    <div class="d-flex">
+                        <input id="field_horafin" type="datetime-local" class="form-control" name="horafin" formControlName="horafin" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contenido">Contenido</label>
+                    <input type="text" class="form-control" name="contenido" id="field_contenido"
+                           formControlName="contenido"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_estado">Estado</label>
+                    <input type="number" class="form-control" name="estado" id="field_estado"
+                           formControlName="estado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gestion">Gestion</label>
+                    <input type="number" class="form-control" name="gestion" id="field_gestion"
+                           formControlName="gestion"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{
+    "name": "Niusta",
+    "fields": [
+        {
+            "fieldName": "ci",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreNiusta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ru",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "item",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "edad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "gustos",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estatura",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "titulo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190510161925",
+    "entityTableName": "niusta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

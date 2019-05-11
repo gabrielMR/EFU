@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fraternidad">
+            <h2><span>Fraternidad</span> {{fraternidad.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Id Fraternidad</span></dt>
+                <dd>
+                    <span>{{fraternidad.idFraternidad}}</span>
+                </dd>
+                <dt><span>Nombre</span></dt>
+                <dd>
+                    <span>{{fraternidad.nombre}}</span>
+                </dd>
+                <dt><span>Danza</span></dt>
+                <dd>
+                    <span>{{fraternidad.danza}}</span>
+                </dd>
+                <dt><span>Instancia</span></dt>
+                <dd>
+                    <span>{{fraternidad.instancia}}</span>
+                </dd>
+                <dt><span>Fundacion</span></dt>
+                <dd>
+                    <span>{{fraternidad.fundacion}}</span>
+                </dd>
+                <dt><span>Descripcion</span></dt>
+                <dd>
+                    <span>{{fraternidad.descripcion}}</span>
+                </dd>
+                <dt><span>Estado</span></dt>
+                <dd>
+                    <span>{{fraternidad.estado}}</span>
+                </dd>
+                <dt><span>Nombre Niusta</span></dt>
+                <dd>
+                    <div *ngIf="fraternidad.nombreNiusta">
+                        <a [routerLink]="['/niusta', fraternidad.nombreNiusta?.id, 'view']">{{fraternidad.nombreNiusta?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Nombre Delegado</span></dt>
+                <dd>
+                    <div *ngIf="fraternidad.nombreDelegado">
+                        <a [routerLink]="['/delegado', fraternidad.nombreDelegado?.id, 'view']">{{fraternidad.nombreDelegado?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Nombre</span></dt>
+                <dd>
+                    <span *ngFor="let nombre of fraternidad.nombres; let last = last">
+                        <a [routerLink]="['/fraterno', nombre?.id, 'view' ]">{{nombre.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fraternidad', fraternidad.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

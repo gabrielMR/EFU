@@ -1,0 +1,48 @@
+{
+    "name": "Premio",
+    "fields": [
+        {
+            "fieldName": "tituloPremio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "categoria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "puesto",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "gestion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idFraternidad",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "fraternidad",
+            "otherEntityRelationshipName": "tituloPremio",
+            "relationshipName": "nombre",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190510161920",
+    "entityTableName": "premio",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

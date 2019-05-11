@@ -1,0 +1,43 @@
+{
+    "name": "Delegado",
+    "fields": [
+        {
+            "fieldName": "idDelegado",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ci",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreDelegado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ru",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "item",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "correo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190510161923",
+    "entityTableName": "delegado",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Premio.
+    -->
+    <changeSet id="20190510161920-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="premio_id"
+                                 baseTableName="premio_nombre"
+                                 constraintName="fk_premio_nombre_premio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="premio"/>
+
+        <addForeignKeyConstraint baseColumnNames="nombre_id"
+                                 baseTableName="premio_nombre"
+                                 constraintName="fk_premio_nombre_nombre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fraternidad"/>
+        
+    </changeSet>
+</databaseChangeLog>

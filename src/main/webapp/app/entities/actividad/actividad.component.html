@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span>Actividads</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-actividad" [routerLink]="['/actividad/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Actividad
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="actividads">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Titulo</span></th>
+            <th><span>Descripcion</span></th>
+            <th><span>Fechaini</span></th>
+            <th><span>Fechafin</span></th>
+            <th><span>Horaini</span></th>
+            <th><span>Horafin</span></th>
+            <th><span>Contenido</span></th>
+            <th><span>Estado</span></th>
+            <th><span>Gestion</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let actividad of actividads ;trackBy: trackId">
+                <td><a [routerLink]="['/actividad', actividad.id, 'view' ]">{{actividad.id}}</a></td>
+                <td>{{actividad.titulo}}</td>
+                <td>{{actividad.descripcion}}</td>
+                <td>{{actividad.fechaini | date:'mediumDate'}}</td>
+                <td>{{actividad.fechafin | date:'mediumDate'}}</td>
+                <td>{{actividad.horaini | date:'medium'}}</td>
+                <td>{{actividad.horafin | date:'medium'}}</td>
+                <td>{{actividad.contenido}}</td>
+                <td>{{actividad.estado}}</td>
+                <td>{{actividad.gestion}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/actividad', actividad.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/actividad', actividad.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'actividad', { outlets: { popup: actividad.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

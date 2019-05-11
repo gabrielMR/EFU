@@ -1,0 +1,44 @@
+{
+    "name": "Fraterno",
+    "fields": [
+        {
+            "fieldName": "ci",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreFraterno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ru",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "item",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "observaciones",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "fraternidad",
+            "otherEntityRelationshipName": "nombre",
+            "relationshipName": "ci",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190510161924",
+    "entityTableName": "fraterno",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

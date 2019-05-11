@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161917_added_entity_Recorrido.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161918_added_entity_Actividad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161919_added_entity_Comunicado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161920_added_entity_Premio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161921_added_entity_Notificacion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161922_added_entity_Fraternidad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161923_added_entity_Delegado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161924_added_entity_Fraterno.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161925_added_entity_Niusta.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190510161920_added_entity_constraints_Premio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161921_added_entity_constraints_Notificacion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190510161922_added_entity_constraints_Fraternidad.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

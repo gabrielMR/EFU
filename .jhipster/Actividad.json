@@ -1,0 +1,51 @@
+{
+    "name": "Actividad",
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaini",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fechafin",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "horaini",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "horafin",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "contenido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "gestion",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190510161918",
+    "entityTableName": "actividad",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

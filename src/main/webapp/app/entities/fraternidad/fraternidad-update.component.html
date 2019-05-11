@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-fraternidad-heading">Create or edit a Fraternidad</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fraternidad.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idFraternidad">Id Fraternidad</label>
+                    <input type="number" class="form-control" name="idFraternidad" id="field_idFraternidad"
+                           formControlName="idFraternidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_danza">Danza</label>
+                    <input type="text" class="form-control" name="danza" id="field_danza"
+                           formControlName="danza"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_instancia">Instancia</label>
+                    <input type="text" class="form-control" name="instancia" id="field_instancia"
+                           formControlName="instancia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fundacion">Fundacion</label>
+                    <div class="input-group">
+                        <input id="field_fundacion" type="text" class="form-control" name="fundacion" ngbDatepicker  #fundacionDp="ngbDatepicker" formControlName="fundacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fundacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_estado">Estado</label>
+                    <input type="number" class="form-control" name="estado" id="field_estado"
+                           formControlName="estado"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nombreNiusta">Nombre Niusta</label>
+                    <select class="form-control" id="field_nombreNiusta" name="nombreNiusta" formControlName="nombreNiusta">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="niustaOption.id === editForm.get('nombreNiusta').value?.id ? editForm.get('nombreNiusta').value : niustaOption" *ngFor="let niustaOption of nombreniustas; trackBy: trackNiustaById">{{niustaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nombreDelegado">Nombre Delegado</label>
+                    <select class="form-control" id="field_nombreDelegado" name="nombreDelegado" formControlName="nombreDelegado">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="delegadoOption.id === editForm.get('nombreDelegado').value?.id ? editForm.get('nombreDelegado').value : delegadoOption" *ngFor="let delegadoOption of nombredelegados; trackBy: trackDelegadoById">{{delegadoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_nombres">Nombre</label>
+                    <select class="form-control" id="field_nombres" multiple name="nombres" formControlName="nombres">
+                        <option [ngValue]="getSelected(editForm.get('nombres').value, fraternoOption)" *ngFor="let fraternoOption of fraternos; trackBy: trackFraternoById">{{fraternoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

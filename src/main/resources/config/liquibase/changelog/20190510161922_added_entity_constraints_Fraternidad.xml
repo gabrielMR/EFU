@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Fraternidad.
+    -->
+    <changeSet id="20190510161922-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="nombre_niusta_id"
+                                 baseTableName="fraternidad"
+                                 constraintName="fk_fraternidad_nombre_niusta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="niusta"/>
+
+        <addForeignKeyConstraint baseColumnNames="nombre_delegado_id"
+                                 baseTableName="fraternidad"
+                                 constraintName="fk_fraternidad_nombre_delegado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="delegado"/>
+
+        <addForeignKeyConstraint baseColumnNames="fraternidad_id"
+                                 baseTableName="fraternidad_nombre"
+                                 constraintName="fk_fraternidad_nombre_fraternidad_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fraternidad"/>
+
+        <addForeignKeyConstraint baseColumnNames="nombre_id"
+                                 baseTableName="fraternidad_nombre"
+                                 constraintName="fk_fraternidad_nombre_nombre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fraterno"/>
+        
+    </changeSet>
+</databaseChangeLog>

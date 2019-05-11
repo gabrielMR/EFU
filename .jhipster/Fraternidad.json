@@ -1,0 +1,84 @@
+{
+    "name": "Fraternidad",
+    "fields": [
+        {
+            "fieldName": "idFraternidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "danza",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instancia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fundacion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "niusta",
+            "otherEntityRelationshipName": "fraternidad",
+            "relationshipName": "nombreNiusta",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "delegado",
+            "otherEntityRelationshipName": "fraternidad",
+            "relationshipName": "nombreDelegado",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "fraterno",
+            "otherEntityRelationshipName": "ci",
+            "relationshipName": "nombre",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "premio",
+            "otherEntityRelationshipName": "nombre",
+            "relationshipName": "tituloPremio",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "notificacion",
+            "otherEntityRelationshipName": "nombre",
+            "relationshipName": "tituloNotificacion",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190510161922",
+    "entityTableName": "fraternidad",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

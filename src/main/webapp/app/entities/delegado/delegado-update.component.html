@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-delegado-heading">Create or edit a Delegado</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!delegado.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idDelegado">Id Delegado</label>
+                    <input type="number" class="form-control" name="idDelegado" id="field_idDelegado"
+                           formControlName="idDelegado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ci">Ci</label>
+                    <input type="number" class="form-control" name="ci" id="field_ci"
+                           formControlName="ci"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nombreDelegado">Nombre Delegado</label>
+                    <input type="text" class="form-control" name="nombreDelegado" id="field_nombreDelegado"
+                           formControlName="nombreDelegado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ru">Ru</label>
+                    <input type="number" class="form-control" name="ru" id="field_ru"
+                           formControlName="ru"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_item">Item</label>
+                    <input type="number" class="form-control" name="item" id="field_item"
+                           formControlName="item"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_telefono">Telefono</label>
+                    <input type="number" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_correo">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="field_correo"
+                           formControlName="correo"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

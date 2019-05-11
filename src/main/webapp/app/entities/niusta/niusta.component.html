@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Niustas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-niusta" [routerLink]="['/niusta/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Niusta
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="niustas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Ci</span></th>
+            <th><span>Nombre Niusta</span></th>
+            <th><span>Ru</span></th>
+            <th><span>Item</span></th>
+            <th><span>Edad</span></th>
+            <th><span>Gustos</span></th>
+            <th><span>Estatura</span></th>
+            <th><span>Titulo</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let niusta of niustas ;trackBy: trackId">
+                <td><a [routerLink]="['/niusta', niusta.id, 'view' ]">{{niusta.id}}</a></td>
+                <td>{{niusta.ci}}</td>
+                <td>{{niusta.nombreNiusta}}</td>
+                <td>{{niusta.ru}}</td>
+                <td>{{niusta.item}}</td>
+                <td>{{niusta.edad}}</td>
+                <td>{{niusta.gustos}}</td>
+                <td>{{niusta.estatura}}</td>
+                <td>{{niusta.titulo}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/niusta', niusta.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/niusta', niusta.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'niusta', { outlets: { popup: niusta.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

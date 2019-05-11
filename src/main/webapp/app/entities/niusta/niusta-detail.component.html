@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="niusta">
+            <h2><span>Niusta</span> {{niusta.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ci</span></dt>
+                <dd>
+                    <span>{{niusta.ci}}</span>
+                </dd>
+                <dt><span>Nombre Niusta</span></dt>
+                <dd>
+                    <span>{{niusta.nombreNiusta}}</span>
+                </dd>
+                <dt><span>Ru</span></dt>
+                <dd>
+                    <span>{{niusta.ru}}</span>
+                </dd>
+                <dt><span>Item</span></dt>
+                <dd>
+                    <span>{{niusta.item}}</span>
+                </dd>
+                <dt><span>Edad</span></dt>
+                <dd>
+                    <span>{{niusta.edad}}</span>
+                </dd>
+                <dt><span>Gustos</span></dt>
+                <dd>
+                    <span>{{niusta.gustos}}</span>
+                </dd>
+                <dt><span>Estatura</span></dt>
+                <dd>
+                    <span>{{niusta.estatura}}</span>
+                </dd>
+                <dt><span>Titulo</span></dt>
+                <dd>
+                    <span>{{niusta.titulo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/niusta', niusta.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

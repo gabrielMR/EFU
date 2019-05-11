@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fraterno">
+            <h2><span>Fraterno</span> {{fraterno.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ci</span></dt>
+                <dd>
+                    <span>{{fraterno.ci}}</span>
+                </dd>
+                <dt><span>Nombre Fraterno</span></dt>
+                <dd>
+                    <span>{{fraterno.nombreFraterno}}</span>
+                </dd>
+                <dt><span>Ru</span></dt>
+                <dd>
+                    <span>{{fraterno.ru}}</span>
+                </dd>
+                <dt><span>Item</span></dt>
+                <dd>
+                    <span>{{fraterno.item}}</span>
+                </dd>
+                <dt><span>Observaciones</span></dt>
+                <dd>
+                    <span>{{fraterno.observaciones}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fraterno', fraterno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

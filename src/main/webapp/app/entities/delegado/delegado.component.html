@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span>Delegados</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-delegado" [routerLink]="['/delegado/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Delegado
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="delegados">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Id Delegado</span></th>
+            <th><span>Ci</span></th>
+            <th><span>Nombre Delegado</span></th>
+            <th><span>Ru</span></th>
+            <th><span>Item</span></th>
+            <th><span>Telefono</span></th>
+            <th><span>Correo</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let delegado of delegados ;trackBy: trackId">
+                <td><a [routerLink]="['/delegado', delegado.id, 'view' ]">{{delegado.id}}</a></td>
+                <td>{{delegado.idDelegado}}</td>
+                <td>{{delegado.ci}}</td>
+                <td>{{delegado.nombreDelegado}}</td>
+                <td>{{delegado.ru}}</td>
+                <td>{{delegado.item}}</td>
+                <td>{{delegado.telefono}}</td>
+                <td>{{delegado.correo}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/delegado', delegado.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/delegado', delegado.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'delegado', { outlets: { popup: delegado.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

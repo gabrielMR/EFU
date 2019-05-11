@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-premio-heading">Create or edit a Premio</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!premio.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tituloPremio">Titulo Premio</label>
+                    <input type="text" class="form-control" name="tituloPremio" id="field_tituloPremio"
+                           formControlName="tituloPremio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_categoria">Categoria</label>
+                    <input type="text" class="form-control" name="categoria" id="field_categoria"
+                           formControlName="categoria"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_puesto">Puesto</label>
+                    <input type="number" class="form-control" name="puesto" id="field_puesto"
+                           formControlName="puesto"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gestion">Gestion</label>
+                    <input type="number" class="form-control" name="gestion" id="field_gestion"
+                           formControlName="gestion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idFraternidad">Id Fraternidad</label>
+                    <input type="number" class="form-control" name="idFraternidad" id="field_idFraternidad"
+                           formControlName="idFraternidad"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="field_nombres">Nombre</label>
+                    <select class="form-control" id="field_nombres" multiple name="nombres" formControlName="nombres">
+                        <option [ngValue]="getSelected(editForm.get('nombres').value, fraternidadOption)" *ngFor="let fraternidadOption of fraternidads; trackBy: trackFraternidadById">{{fraternidadOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

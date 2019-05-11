@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="delegado">
+            <h2><span>Delegado</span> {{delegado.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Id Delegado</span></dt>
+                <dd>
+                    <span>{{delegado.idDelegado}}</span>
+                </dd>
+                <dt><span>Ci</span></dt>
+                <dd>
+                    <span>{{delegado.ci}}</span>
+                </dd>
+                <dt><span>Nombre Delegado</span></dt>
+                <dd>
+                    <span>{{delegado.nombreDelegado}}</span>
+                </dd>
+                <dt><span>Ru</span></dt>
+                <dd>
+                    <span>{{delegado.ru}}</span>
+                </dd>
+                <dt><span>Item</span></dt>
+                <dd>
+                    <span>{{delegado.item}}</span>
+                </dd>
+                <dt><span>Telefono</span></dt>
+                <dd>
+                    <span>{{delegado.telefono}}</span>
+                </dd>
+                <dt><span>Correo</span></dt>
+                <dd>
+                    <span>{{delegado.correo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delegado', delegado.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

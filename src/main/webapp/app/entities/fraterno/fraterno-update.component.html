@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-fraterno-heading">Create or edit a Fraterno</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fraterno.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ci">Ci</label>
+                    <input type="number" class="form-control" name="ci" id="field_ci"
+                           formControlName="ci"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nombreFraterno">Nombre Fraterno</label>
+                    <input type="text" class="form-control" name="nombreFraterno" id="field_nombreFraterno"
+                           formControlName="nombreFraterno"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ru">Ru</label>
+                    <input type="number" class="form-control" name="ru" id="field_ru"
+                           formControlName="ru"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_item">Item</label>
+                    <input type="number" class="form-control" name="item" id="field_item"
+                           formControlName="item"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_observaciones">Observaciones</label>
+                    <input type="text" class="form-control" name="observaciones" id="field_observaciones"
+                           formControlName="observaciones"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
